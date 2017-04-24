@@ -58,7 +58,14 @@ def run():
         else:
             os.makedirs(each_dir, exist_ok=False)
             with open("{}/readme.md".format(each_dir), "xt") as f:
-                f.write("### {}".format(each_dir))
+                content = ("### {}\n"
+                           "\n"
+                           "#### 问题\n"
+                           "\n"
+                           "#### 解决方案\n"
+                           "\n"
+                           "#### 讨论").format(each_dir)
+                f.write(content)
 
     print("[*] 开始更新根目录下的 SUMMARY.md 文件")
     update_summary_md_file(dirs)
